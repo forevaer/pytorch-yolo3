@@ -136,7 +136,6 @@ def standardDraw(image_path, label_path, normalize=True):
         anchor[3] = anchor[3] * h
     anchor[0] += 0 if w > h else half
     anchor[1] += 0 if h > w else half
-    print(anchor)
     fig, ax = plt.subplots(1)
     rect = patches.Rectangle((anchor[0], anchor[1]), anchor[2], anchor[3], linewidth=2, edgecolor='cyan',
                              facecolor='red')

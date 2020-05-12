@@ -67,46 +67,6 @@ def rescale_boxes(boxes, original_shape, standard_size):
     return boxes
 
 
-def rescale_boxes(boxes, original_shape, standard_size):
-    """
-     真实的图片会经过三种尺寸变换
-         0. 原始尺寸
-         1. 正方形填充
-         2. 标准尺寸放缩
-     结果的bbox是相对于标准尺寸的，要恢复到原图，需要进行如下步骤
-         1. 放缩到正方形尺寸
-         2. 去除边框填充偏移
-         3. 真实bbox
-     不过，通过归一化的方式，可以这样操作
-         0. 剔除边框填充
-         1. 等比例缩放原图
-         2. 真实bbox
-    """
-    origin_h, origin_w = original_shape
-    # 填充为正方形的大小
-    paddedLength = origin_h if origin_h > origin_w else origin_w
-    # 计算缩放时的填充
-    pad_x = (paddedLength - origin_w) * (standard_size / paddedLength)
-    pad_y = (paddedLength - origin_h) * (standard_size / paddedLength)
-    # 获得无填充缩放大图
-    un_pad_h = standard_size - pad_y
-    un_pad_w = standard_size - pad_x
-    # 大图上的bbox直接缩放
-    boxes[:, 0] = (boxes[:, 0] - pad_x // 2) / un_pad_w * origin_w
-    boxes[:, 1] = (boxes[:, 1] - pad_y // 2) / un_pad_h * origin_h
-    boxes[:, 2] = (boxes[:, 2] - pad_x // 2) / un_pad_w * origin_w
-    boxes[:, 3] = (boxes[:, 3] - pad_y // 2) / un_pad_h * origin_h
-    # 尺寸超标问题
-    boxes[boxes < 0] = 0
-    max_x = boxes[:, 2]
-    max_y = boxes[:, 3]
-    max_x[max_x > origin_w] = origin_w
-    max_y[max_y > origin_h] = origin_h
-    boxes[:, 2] = max_x
-    boxes[:, 3] = max_y
-    return boxes
-
-
 def bbox_iou(box1, box2, point=True):
     if not point:
         # (x, y, w, h)
@@ -160,7 +120,6 @@ def NMS(prediction):
         while detections.size(0):
             # 广播操作
             # 计算第一个和其他全部的iou
-            print(detections)
             ious = bbox_iou(detections[0, :4].unsqueeze(0), detections[:, :4], point=True)
             # print(ious)
             large_overlap = ious > config.nms_threshold

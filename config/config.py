@@ -2,9 +2,9 @@ from entity.enum import OPTIMIZER, PHASE
 
 # 主体设置
 
-phase = PHASE.TRAIN
-fewTrain = True
-initFromWeight = False
+phase = PHASE.DETECT
+fewTrain = False
+initFromWeight = True
 logRegister = False
 logModel = False
 
