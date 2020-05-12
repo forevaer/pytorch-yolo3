@@ -1,7 +1,6 @@
 import torch
 from assist.compute import NMS
 from assist.utils import getLabels
-from torch.autograd import Variable
 from config.config import output_path
 from assist.image import ImageRender
 from assist.compute import rescale_boxes

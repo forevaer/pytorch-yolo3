@@ -1,8 +1,8 @@
+from config import config
 from assist.assist import getModule
 from registry.loaderRegistry import getLoader
 from registry.entranceRegister import getEntrance
 from registry.optimizerRegistry import getOptimizerCreator
-from config import config
 
 
 def main():

@@ -5,7 +5,7 @@ from glob import glob
 from PIL import Image
 from os.path import exists
 from config.config import image_size, padValue, multi_scale_train, normalized_labels, align_flip, multi_scale_interval
-from assist.image import pad2square, resize, readTensorImage, horizontal_flip
+from assist.image import pad2square, resize, readTensorImage
 from torchvision.transforms import transforms
 from torch.utils.data import Dataset, DataLoader
 

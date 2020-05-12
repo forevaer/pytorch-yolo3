@@ -1,9 +1,9 @@
 import torch
 from config import config
-from entity.logger import Logger
 from net.DarkNet import DarkNet
-from assist.utils import weights_init_normal, ensurePath
+from entity.logger import Logger
 from registry import optimizerRegistry
+from assist.utils import weights_init_normal, ensurePath
 
 
 def getLogger():
@@ -38,5 +38,3 @@ def getOptimizer(model):
 def saveModel(model: torch.nn.Module):
     ensurePath(config.model_save_path)
     torch.save(model.state_dict(), config.model_save_path)
-
-

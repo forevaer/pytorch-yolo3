@@ -1,9 +1,9 @@
 import torch
 import numpy as np
-from assist.compute import tensor2cpu
-from entity.parser import ConfigParser, LayerDefinition
-from registry.creatorRegistry import create
 from torch import nn
+from assist.compute import tensor2cpu
+from registry.creatorRegistry import create
+from entity.parser import ConfigParser, LayerDefinition
 
 
 class DarkNet(nn.Module):

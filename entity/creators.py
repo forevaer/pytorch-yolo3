@@ -1,7 +1,7 @@
 import numpy as np
 from torch import nn
-from net import EmptyLayer, YOLOLayer
 from entity.enum import LayerType
+from net import EmptyLayer, YOLOLayer
 from entity.parser import LayerDefinition
 from registry.creatorRegistry import creator
 
