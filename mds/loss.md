@@ -51,4 +51,4 @@
 这里只做总体的概述，详细细节，代码后续说明。
 
 > 损失代码参看： [YOLONet.py](../net/YOLONet.py) <br>
-> 详细属性参看： [utils.py](../assist/compute.py)
+> 详细属性参看： [compute.py](../assist/compute.py)
