@@ -87,3 +87,9 @@ class LayerDefinition(object):
 ...
 ```
 类型信息具体保留，后续判断很多。
+
+
+# 模型生成
+详情介绍在请参看[modelCreator.md](modelCreator.md)
+
+

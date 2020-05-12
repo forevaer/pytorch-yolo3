@@ -10,5 +10,5 @@
 ```shell script
 bash get_coco_dataset.sh
 ```
-进行获取。
-> 如果不需要太大数据集合，可以切换到[protable]()分支进行获取。
+进行获取。或者访问百度云分享
+> 链接: [https://pan.baidu.com/s/1Sgwzh8_Yj--bAb5sdlsfwA](https://pan.baidu.com/s/1Sgwzh8_Yj--bAb5sdlsfwA) 提取码: kbue
