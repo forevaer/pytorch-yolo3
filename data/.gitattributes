@@ -1,0 +1,10 @@
+coco/README.txt filter=lfs diff=lfs merge=lfs -text
+coco/images filter=lfs diff=lfs merge=lfs -text
+coco/labels filter=lfs diff=lfs merge=lfs -text
+coco/trainvalno5k.part filter=lfs diff=lfs merge=lfs -text
+coco/trainvalno5k.txt filter=lfs diff=lfs merge=lfs -text
+coco/5k.txt filter=lfs diff=lfs merge=lfs -text
+coco/get_coco_dataset.sh filter=lfs diff=lfs merge=lfs -text
+coco/instances_train-val2014.zip filter=lfs diff=lfs merge=lfs -text
+coco/labels.tgz filter=lfs diff=lfs merge=lfs -text
+coco/license.txt filter=lfs diff=lfs merge=lfs -text
