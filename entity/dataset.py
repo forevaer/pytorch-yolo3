@@ -34,7 +34,6 @@ class ImageSet(Dataset):
 class ListSet(Dataset):
 
     def __init__(self, file_path):
-        print(file_path)
         with open(file_path, 'r') as file:
             image_files = file.readlines()
         image_paths = [path.strip() for path in image_files]
