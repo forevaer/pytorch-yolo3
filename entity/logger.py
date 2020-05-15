@@ -40,6 +40,10 @@ class Logger(object):
     def log(self, message):
         self.__print(message)
 
+    def log_yolos(self, yolos):
+        for yolo in yolos:
+            self.log(yolo.metrics.line())
+
     def step(self):
         self.batch_id += 1
         if not self.batch_id < self.batch + 1:

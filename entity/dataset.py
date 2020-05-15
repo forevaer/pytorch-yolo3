@@ -34,16 +34,23 @@ class ImageSet(Dataset):
 class ListSet(Dataset):
 
     def __init__(self, file_path):
+        print(file_path)
         with open(file_path, 'r') as file:
-            self.image_files = file.readlines()
-        self.image_paths = [path.strip() for path in self.image_files]
-        self.label_paths = [path.replace('images', 'labels').replace('.png', '.txt').replace('.jpg', '.txt') for path in
-                            self.image_paths]
+            image_files = file.readlines()
+        image_paths = [path.strip() for path in image_files]
+        label_paths = [path.replace('images', 'labels').replace('.png', '.txt').replace('.jpg', '.txt') for path in
+                            image_paths]
+        self.image_paths = []
+        self.label_paths = []
+        for idx, (path, label) in enumerate(zip(image_paths, label_paths)):
+            if exists(path) and exists(label):
+                self.image_paths.append(path)
+                self.label_paths.append(label)
         self.image_size = image_size
         self.min_size = image_size - 3 * 32
         self.max_size = image_size + 3 * 32
         self.batch_count = 0
-        self.length = len(self.image_files)
+        self.length = len(self.image_paths)
         self.align_flip = align_flip
         self.normalized_labels = normalized_labels
         self.multi_scale_train = multi_scale_train

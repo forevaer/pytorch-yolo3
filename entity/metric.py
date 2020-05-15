@@ -30,9 +30,24 @@ metrics = [
     'background_acc'
 ]
 
+loss_metrics = [
+    'loss',
+    'loss_x',
+    'loss_y',
+    'loss_w',
+    'loss_h',
+    'loss_confidence',
+    'loss_class'
+]
+
+acc_metrics = [
+    'class_acc',
+    'foreground_acc',
+    'background_acc'
+]
+
 formats = {
     'grid': '%2d',
-    'class_acc': '%.2f%%',
     'name': '%s',
 }
 
@@ -64,6 +79,23 @@ class Metric(object):
             rows.append(self._line(metric))
         return rows
 
+    def lossEntries(self):
+        loss = []
+        for loss_metric in loss_metrics:
+            loss.append(getattr(self, loss_metric))
+        return loss
+
+    def accEntries(self):
+        acc = []
+        for acc_metric in acc_metrics:
+            acc.append(getattr(self, acc_metric))
+        return acc
+
     @staticmethod
     def head():
         return metrics
+
+
+if __name__ == '__main__':
+    m = Metric()
+    print(m.__dict__)

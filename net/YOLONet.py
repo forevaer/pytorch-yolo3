@@ -133,7 +133,7 @@ class YOLOLayer(nn.Module):
 
         # 指标
         # 类型判断召回
-        class_acc = 100 * _class_acc[reality_foreground].mean()
+        class_acc = _class_acc[reality_foreground].mean()
         # 前景召回
         foreground_acc = predict_object[reality_foreground].mean()
         # 背景召回

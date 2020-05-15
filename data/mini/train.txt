@@ -1,0 +1,1 @@
+/Users/godme/project/python/yolo3/data/coco/images/train2014/COCO_train2014_000000526648.jpg
